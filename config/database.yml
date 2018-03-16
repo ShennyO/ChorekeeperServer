@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: shore-api-development
+  pool: 5
+  username: shenny
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: shore-api-test
+  pool: 5
+  username: shenny
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: <%= ENV['DATABASE_URL'] %>
