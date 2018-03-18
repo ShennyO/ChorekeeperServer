@@ -13,7 +13,8 @@ class V1::GroupsController < ApplicationController
 
   # GET /v1/groups/1
   def show
-    @v1_group = current_user.group.where(id: params[:id]).first
+
+    @v1_group = Group.where(id: params[:id]).first
     if  @v1_group != nil
       render json: @v1_group, status: :ok
     else
@@ -43,18 +44,27 @@ class V1::GroupsController < ApplicationController
   # /v1/groups/:id
   #Handle what happens when the last person of a group leaves it
   def remove_member
-    @v1_group = current_user.groups.where(id: params[:id]).first
-    user = @v1_group.users.where(id: params[:user_id])
-    @v1_group.users.delete(user)
-    @v1_group.save
 
+    #Deleting all chores associated with that group and user
     user_chores = Chore.where(user_id: params[:user_id], group_id: params[:id])
     user_chores.each do |chore|
       chore.destroy
     end
+    #Deleting all requests of that group user
     user_requests = Request.where(sender_id: params[:user_id], group_id: params[:id])
     user_requests.each do |request|
       request.destroy
+    end
+    #After deleting all the chores and requests, check if it's the last member
+    
+    @v1_group = current_user.groups.where(id: params[:id]).first
+    user = @v1_group.users.where(id: params[:user_id])
+
+    @v1_group.users.delete(user)
+    if @v1_group.users.length == 0
+      @v1_group.destroy
+    else
+      @v1_group.save
     end
     head(:ok)
   end
