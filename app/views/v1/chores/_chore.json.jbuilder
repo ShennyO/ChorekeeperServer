@@ -11,5 +11,6 @@ json.call(
     :completed,
     :assigned,
     :user_id,
-    :groupname
+    :groupname,
+    :description
 )

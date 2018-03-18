@@ -168,7 +168,7 @@ end
 
     # Only allow a trusted parameter "white list" through.
     def v1_chore_params
-      params.permit(:name, :id, :due_date, :completed, :assigned, :reward, :penalty, :user_id, :group_id)
+      params.permit(:name, :id, :due_date, :completed, :assigned, :reward, :penalty, :user_id, :group_id, :description)
 
     end
 end
