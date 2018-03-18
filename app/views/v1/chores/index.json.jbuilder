@@ -9,12 +9,5 @@ json.array! @v1_chore do |each_chore|
         end
     else
 json.user  nil
-    end
-    # add group
-    group = Group.where(id: params[:group_id]).first
-    if group.present?
-      json.group_image group.image_file
-    else
-      json.group_image nil
-    end
+    end    
 end

@@ -94,31 +94,15 @@ end
     @v1_chore ||= []
      current_user.groups.each do |group|
        group.chores.each do |chore|
-
           if chore.user_id == current_user.id && chore.completed == false
             @v1_chore << chore
         end
        end
     end
     #render json is basically the return value, in this case, return @v1_chore as json
-    render json: @v1_chore, status: :ok
+    render :index_user, status: :ok
   end
 
-
-
-  # GET /v1/group/{:group_id}/chores/groups
-  def group_chores
-
-    group = current_user.groups.where(id: params[:group_id]).first
-    @v1_chore ||= []
-    group.chores.each do |chore|
-      if chore.completed == false
-        @v1_chore << chore
-      end
-    end
-    byebug
-    render :index, status: :ok
-  end
 
   def completed_group_chores
 

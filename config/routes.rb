@@ -23,7 +23,6 @@ get 'fetch_chore_completion_requests/' => 'requests#fetch_chore_completion_reque
  get 'chores/user/' => 'chores#user_chores'
  #Get User completed chores
  get 'completed_chores/user/' => 'chores#completed_user_chores'
- get 'chores/:group_id/group/' => 'chores#group_chores'
  get 'groups/:group_id/completed_chores/' => 'chores#completed_group_chores'
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  #patch routes

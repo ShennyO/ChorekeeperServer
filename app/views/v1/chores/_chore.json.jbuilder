@@ -12,5 +12,6 @@ json.call(
     :assigned,
     :user_id,
     :groupname,
-    :description
+    :description,
+    :pending
 )
