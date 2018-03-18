@@ -13,7 +13,7 @@ json.user  nil
     # add group
     group = Group.where(id: params[:group_id]).first
     if group.present?
-      json.group_image = group.image_file
+      json.group_image group.image_file
     else
       json.group_image nil
     end
