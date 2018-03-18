@@ -86,7 +86,7 @@ end
        end
     end
     #render json is basically the return value, in this case, return @v1_chore as json
-    render json: @v1_chore, status: :ok
+    render :index_user, status: :ok
   end
 
   # GET /v1/group/{:group_id}/chores/users
