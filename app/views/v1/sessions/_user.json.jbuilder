@@ -9,5 +9,3 @@ json.call(
         :authentication_token,
         :image_file
     )
-
-json.image_file user.image_file.url(:medium)
