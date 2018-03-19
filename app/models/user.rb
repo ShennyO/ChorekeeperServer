@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_and_belongs_to_many :groups#, foreign_key: :owner
   has_many :chores, through: :groups, :autosave => false
   validates :email, presence: true, uniqueness: true
-  has_attached_file :image_file, styles: { large: "300x300>", medium: "200x200", thumb: "100x100>"}
+  has_attached_file :image_file, styles: { large: "500x500>", medium: "300x300>", thumb: "100x100>"}
   validates_attachment_content_type :image_file, content_type: /\Aimage\/.*\z/
 end
