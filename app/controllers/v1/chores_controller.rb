@@ -67,13 +67,17 @@ end
 
   # DELETE example route: /v1/groups/:group_id/chores/:id
   def destroy
-    @v1_chore = Chore.where(id: params[:id])
+    if current_user != nil
+    @v1_chore =  Chore.where(id: params[:id]).first
     if @v1_chore.destroy
       head(:ok)
     else
       head(:unprocessable_entity)
     end
+  else
+    head(:unprocessable_entity)
   end
+end
 
   def completed_user_chores
     @v1_chore ||= []
