@@ -25,9 +25,14 @@ end
   end
 
   def new_account
-
+    # byebug
+    checkUserEmail = User.where(email: v1_sessions_params[:email]).first
+    checkUserUsername = User.where(username: v1_sessions_params[:users]).first
+    if checkUserEmail != nil || checkUserUsername != nil
+      render json: v1_sessions_params, status: :forbidden
+      return
+    end
     @v1_user = User.new(v1_sessions_params)
-
     if @v1_user.save
       render :create, status: :ok
     else
