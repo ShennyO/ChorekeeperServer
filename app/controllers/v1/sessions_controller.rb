@@ -26,8 +26,10 @@ end
 
   def new_account
     # byebug
-    checkUserEmail = User.where(email: v1_sessions_params[:email]).first
-    checkUserUsername = User.where(username: v1_sessions_params[:users]).first
+    email = v1_sessions_params[:email].downcase
+    username = v1_sessions_params[:username].downcase
+    checkUserEmail = User.where(email: email).first
+    checkUserUsername = User.where(username: username).first
     if checkUserEmail != nil || checkUserUsername != nil
       render json: v1_sessions_params, status: :forbidden
       return
