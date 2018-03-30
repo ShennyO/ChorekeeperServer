@@ -1,11 +1,12 @@
 # README
 
-<div\>Chore server (as is name says) is the server side of chore app project.<div>
-<div\>Chore App is a mobile application that help user to efficiently spread routing<div> task with roommate, related or coworker.
+ChoreKeeperServer is the server side of Trask.
+<div>
+Trask is a mobile application that help users ensure transparency and reliability between housemates and or households.
 
 ### Overview
 
-This project is a ruby on rails api project and use postgresql as Database. and use several models and controller to handle the logic flow
+This project is a ruby on rails api project and uses postgresql as Database.
 
 #### Chore
 
@@ -84,4 +85,3 @@ The server as been deploy on heroku: https://chores-server.herokuapp.com/ as bas
 
 NB: this is a api and doesn't contain any web page yet
 * ...
->>>>>>> b47fc225591bddc2aab2862d150572ddc92293a0
